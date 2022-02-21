@@ -155,20 +155,20 @@ function greeting(firstName,lastName){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(length,width,height){
-      let cuboid = {
-        length : 0,
-        width: 0,
-        height: 0
-      }
+function CuboidMaker(object){
+  this.length = object.length;
+  this.width = object.width;
+  this.height = object.height;
 }
-
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 
-
+  CuboidMaker.prototype.volume = function(){
+    this.volume = this.length * this.width * this.height;
+    return this.volume;
+  }
 
 
 
@@ -177,7 +177,10 @@ function CuboidMaker(length,width,height){
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
 
-
+  CuboidMaker.prototype.surfaceArea = function(){
+    this.surfaceArea = 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+    return this.surfaceArea;
+ }
 
 
 
@@ -185,8 +188,7 @@ function CuboidMaker(length,width,height){
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-
-
+const squareOne = new CuboidMaker(4,5,5)
 
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
@@ -198,7 +200,19 @@ function CuboidMaker(length,width,height){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+ constructor(object){
+   this.length = object.length;
+   this.width = object.width;
+   this.height = object.height;
+ }
+ volume(){
+  this.volume = this.length * this.width * this.height;
+  return this.volume;
+ }
+ surfaceArea(){
+  this.surfaceArea = 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  return this.surfaceArea;
+ }
 }
 
 
